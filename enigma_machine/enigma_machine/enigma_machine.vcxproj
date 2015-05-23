@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ciphers.h" />
     <ClCompile Include="enigma_machine.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="main.cpp" />

@@ -4,7 +4,6 @@ int main()
 {
 	Enigma_Machine<std::string> eng;
 
-	
 	eng.start_enigma();
 
 	system("pause");

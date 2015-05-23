@@ -4,11 +4,11 @@
 #include <iostream>
 #include <string>
 #include <Algorithm>
+#include "ciphers.h"
 
-template <typename T> class Enigma_Machine
+template <typename T> class Enigma_Machine: public Rotor_Machine
 {
 private:
-	const std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	const std::string reflector = "FVPJIAOYEDRZXWGCTKUQSBNMHL";
 	int _counter1;
 	int _counter2;
@@ -51,14 +51,13 @@ private:
 
 	void chck_rotors();
 
-	T encrypt(const T& m);
-
 public:
 
 	Enigma_Machine();
-	Enigma_Machine(T t);
 
 	~Enigma_Machine();
+
+	T encrypt(const T& m);
 
 	void rotors_set_start_pos(char r1, char r2, char r3);
 

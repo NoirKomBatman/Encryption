@@ -1,8 +1,9 @@
 #include "enigma_machine.h"
 #include "helper.cpp"
+#include "ciphers.h"
 
 
-
+using namespace cryptography;
 
 template <typename T> 
 Enigma_Machine<T>::Enigma_Machine() :_counter1(10), _counter2(0), _alpha(alphabet), _refl(reflector)
@@ -23,12 +24,6 @@ Enigma_Machine<T>::Enigma_Machine() :_counter1(10), _counter2(0), _alpha(alphabe
 	_perm[25] = 'c';
 }
 
-template <typename T>
-Enigma_Machine<T>::Enigma_Machine(T t)
-{
-	Enigma_Machine();
-}
-
 template <typename T> 
 Enigma_Machine<T>::~Enigma_Machine()
 {
@@ -40,8 +35,8 @@ T Enigma_Machine<T>::get_reflector()
 	return _refl;
 }
 
-template <typename T> T
-Enigma_Machine<T>::get_rotor(int r)
+template <typename T> 
+T Enigma_Machine<T>::get_rotor(int r)
 {
 	if (r == 1) return _rotor1;
 	else if (r == 2) return _rotor2;
@@ -197,27 +192,7 @@ void Enigma_Machine<T>::chck_rotors()
 template <typename T> 
 bool Enigma_Machine<T>::is_all_unique(const T& s)
 {
-	//O(n^2) version that doesn't use any additional data structures
-	/*
-	for (int i = 0; i < s.length(); i++)
-	{
-		int countdooku = 0;
-		for (int j = 0; j < s.length(); j++)
-		{
-			if (s[i] == s[j])
-			{
-				countdooku++;
-			}
-		}
-		if (countdooku > 1)
-		{
-			return false;
-		}
-	}
-	return true;
-	*/
-
-	//O(n) version which uses extra array
+	
 	int hash_alpha[26];
 	for (int i = 0; i < len_of(s); i++) {
 		int c = char_at(s, i);

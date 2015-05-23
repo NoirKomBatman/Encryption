@@ -1,6 +1,3 @@
-
-
-
 template <typename T> int len_of(const T& s)
 {
 	int len = 0;
