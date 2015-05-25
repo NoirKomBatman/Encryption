@@ -6,7 +6,7 @@
 #include <Algorithm>
 #include "ciphers.h"
 
-template <typename T> class Enigma_Machine: public Rotor_Machine
+template <typename T> class Enigma_Machine: public Rotor_Machine<T>
 {
 private:
 	const std::string reflector = "FVPJIAOYEDRZXWGCTKUQSBNMHL";
